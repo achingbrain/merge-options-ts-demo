@@ -15,13 +15,23 @@ npm info lifecycle merge-options-ts-demo@1.0.0~build: merge-options-ts-demo@1.0.
 > rm -rf ./dist && tsc
 
 index.js:5:1 - error TS2349: This expression is not callable.
-  Type 'typeof import("/path/to/merge-options-ts-demo/node_modules/merge-options/index")' has no call signatures.
+Type 'typeof import("/path/to/merge-options-ts-demo/node_modules/merge-options/index")' has no call signatures.
 
 5 mergeOptions(defaults, {})
-  ~~~~~~~~~~~~
+~~~~~~~~~~~~
+
+index.js:7:14 - error TS2339: Property 'call' does not exist on type 'typeof import("path/to/merge-options-ts-demo/node_modules/merge-options/index")'.
+
+7 mergeOptions.call(null, defaults, {})
+             ~~~~
+
+index.js:9:14 - error TS2339: Property 'bind' does not exist on type 'typeof import("/path/to/merge-options-ts-demo/node_modules/merge-options/index")'.
+
+9 mergeOptions.bind({
+             ~~~~
 
 
-Found 1 error.
+Found 3 errors.
 
 npm info lifecycle merge-options-ts-demo@1.0.0~build: Failed to exec build script
 npm ERR! code ELIFECYCLE
